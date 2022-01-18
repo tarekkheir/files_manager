@@ -5,7 +5,7 @@ class RedisClient {
   constructor() {
     this.client = createClient();
     this.client.on('error', (err) => console.log(err));
-    this.getAsync = promisify(this.client.get).bind(this.clientclient);
+    this.getAsync = promisify(this.client.get).bind(this.client);
   }
 
   isAlive() {
