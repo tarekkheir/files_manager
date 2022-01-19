@@ -10,4 +10,4 @@ app.listen(port, () => {
 
 app.use('/', router);
 
-module.exports = app;
+export default app;
