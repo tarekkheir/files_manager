@@ -1,8 +1,8 @@
-import AppControllers from '../controllers/AppControllers';
+import AppController from '../controllers/AppControllers';
 const router = require('express').Router();
 
-router.get('/status', AppControllers.getStatus);
+router.get('/status', AppController.getStatus);
 
-router.get('/stats', AppControllers.getStats);
+router.get('/stats', AppController.getStats);
 
 module.exports = router;
