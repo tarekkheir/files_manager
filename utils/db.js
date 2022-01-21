@@ -1,4 +1,4 @@
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, Server } from 'mongodb';
 
 class DBClient {
   constructor() {
