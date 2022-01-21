@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
 class DBClient {
   constructor() {
@@ -6,7 +6,7 @@ class DBClient {
     const port = process.env.DB_PORT || 27017;
     const database = process.env.DB_DATABASE || 'files_manager';
 
-    MongoClient.connect(`mongodb://${host}:${port}/${database}`, { useUnifiedTopology: true })
+    MongoClient.connect(new ServerApiVersion(host, port))
       .then((client) => { this.db = client.db(database); });
   }
 
