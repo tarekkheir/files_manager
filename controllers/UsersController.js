@@ -4,7 +4,7 @@ import dbClient from '../utils/db';
 class UsersController {
   static async postNew(req, res) {
     const { email, password } = req.body;
-    const users = await dbClient.database.collection('users');
+    const users = await dbClient.db.collection('users');
 
     if (!email) return res.status(400).send({ error: 'Missing email' });
     if (!password) return res.status(400).send({ error: 'Missing password' });
