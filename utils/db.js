@@ -6,7 +6,7 @@ class DBClient {
     const port = process.env.DB_PORT || 27017;
     const database = process.env.DB_DATABASE || 'files_manager';
 
-    MongoClient.connect(new ServerApiVersion(host, port))
+    MongoClient.connect(new Server(host, port))
       .then((client) => { this.db = client.db(database); });
   }
 
