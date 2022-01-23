@@ -25,7 +25,12 @@ fileQueue.process(async (job) => {
   const { userId } = job.data;
   if (!userId) throw Error('Missing userId');
 
-  const fileDocument = await dbClient.files.findOne({ _id: ObjectId(fileId), userId: ObjectId(userId) });
+  const fileDocument = await dbClient.files.findOne(
+    {
+      _id: ObjectId(fileId),
+      userId: ObjectId(userId),
+    },
+  );
   if (!fileDocument) throw Error('File not found');
 
   createImageThumbnail(fileDocument.localPath, { width: 500 });

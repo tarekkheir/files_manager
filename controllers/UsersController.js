@@ -1,5 +1,6 @@
 import sha1 from 'sha1';
 import dbClient from '../utils/db';
+import authUtils from '../utils/auth';
 
 class UsersController {
   static async postNew(req, res) {

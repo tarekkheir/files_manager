@@ -171,7 +171,7 @@ class FilesController {
     let fileDocument = await dbClient.files.findOne({ _id: ObjectId(idFile), userId: user._id });
     if (!fileDocument) return response.status(404).send({ error: 'Not found' });
 
-    await DBClient.db.collection('files').update({ _id: ObjectId(idFile) }, { $set: { isPublic: true } });
+    await dbClient.files.update({ _id: ObjectId(idFile) }, { $set: { isPublic: true } });
     fileDocument = await dbClient.files.findOne({ _id: ObjectId(idFile), userId: user._id });
 
     return response.send({
@@ -199,7 +199,10 @@ class FilesController {
     let fileDocument = await dbClient.files.findOne({ _id: ObjectId(idFile), userId: user._id });
     if (!fileDocument) return response.status(404).send({ error: 'Not found' });
 
-    await dbClient.files.update({ _id: ObjectId(idFile), userId: user._id }, { $set: { isPublic: false } });
+    await dbClient.files.update(
+      { _id: ObjectId(idFile), userId: user._id },
+      { $set: { isPublic: false } },
+    );
     fileDocument = await dbClient.files.findOne({ _id: ObjectId(idFile), userId: user._id });
 
     return response.send({
@@ -228,7 +231,7 @@ class FilesController {
 
     const token = request.header('X-Token') || null;
     if (token) {
-      const redisToken = await RedisClient.get(`auth_${token}`);
+      const redisToken = await redisClient.get(`auth_${token}`);
       if (redisToken) {
         user = await dbClient.users.findOne({ _id: ObjectId(redisToken) });
         if (user) owner = user._id.toString() === userId.toString();
