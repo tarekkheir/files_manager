@@ -14,6 +14,11 @@ class UsersController {
 
     return res.status(201).send({ id: user.insertedId, email });
   }
+
+  static async getMe(req, res) {
+    const result = await authUtils.checkAuth(req);
+    return res.status(result.status).send(result.payload);
+  }
 }
 
 module.exports = UsersController;
