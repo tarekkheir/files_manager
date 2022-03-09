@@ -1,3 +1,5 @@
+# Files Manager project 
+
 This project is a summary of this back-end trimester: authentication, NodeJS , MongoDB, Redis, pagination and background processing.
 The objective is to build a simple platform to upload and view files:
 
@@ -9,11 +11,10 @@ The objective is to build a simple platform to upload and view files:
 * Generate thumbnails for images
 
 
+### Learning goals
 
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
-
-* how to create an API with Express
-* how to authenticate a user
-* how to store data in MongoDB
-* how to store temporary data in Redis
-* how to setup and use a background worker
+- [x] how to create an API with Express
+- [x] how to authenticate a user
+- [x] how to store data in MongoDB
+- [x] how to store temporary data in Redis
+- [x] how to setup and use a background worker
